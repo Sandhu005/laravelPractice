@@ -16,4 +16,8 @@ class ProductsController extends Controller
         return view('products.add');
     }
 
+      public function edit()
+    {
+        return view('products.edit');
+    }
 }

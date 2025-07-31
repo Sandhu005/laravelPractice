@@ -9,11 +9,9 @@
 <body>
     
     <div class="container">
-        <div class="row">
-            <div class="col">Product List</div>
-        </div>
-        <div class="row">
-            <div class="col">All Products</div>
+        <div class="row justify-content-center">
+            <div class="col-6 h3">Product List</div>
+            <div class="col-6 text-end"><a href="{{route('addProduct')}}" class="btn btn-primary me-1">+Add Product</a><a href="{{route('editProduct')}}" class="btn btn-primary">Edit Product</a></div>
         </div>
         <table class="table">
   <thead>
