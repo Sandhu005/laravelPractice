@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\DashboardController;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,4 +33,4 @@ Route::get('/product/add', [ProductsController::class, 'add'])->name('addProduct
 
 Route::get('/product/edit', [ProductsController::class, 'edit'])->name('editProduct');
 
-
+Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
