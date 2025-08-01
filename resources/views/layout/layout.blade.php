@@ -19,15 +19,6 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 <body>
-  <div class="row" id="proBanner">
-    <div class="col-12">
-      <span class="d-flex align-items-center purchase-popup">
-        <p>Get tons of UI components, Plugins, multiple layouts, 20+ sample pages, and more!</p>
-        <a href="https://bootstrapdash.com/demo/polluxui/template/index.html?utm_source=organic&utm_medium=banner&utm_campaign=free-preview" target="_blank" class="btn download-button purchase-button ml-auto">Upgrade To Pro</a>
-        <i class="typcn typcn-delete-outline" id="bannerClose"></i>
-      </span>
-    </div>
-  </div>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
@@ -188,13 +179,6 @@
         <ul class="navbar-nav mr-lg-2">
           <li class="nav-item ml-0">
             <h4 class="mb-0">Dashboard</h4>
-          </li>
-          <li class="nav-item">
-            <div class="d-flex align-items-baseline">
-              <p class="mb-0">Home</p>
-              <i class="typcn typcn-chevron-right"></i>
-              <p class="mb-0">Main Dahboard</p>
-            </div>
           </li>
         </ul>
         <ul class="navbar-nav navbar-nav-right">
@@ -413,7 +397,7 @@
             <div class="collapse" id="form-elements">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"><a class="nav-link" href="{{route('addProduct')}}">Add Product</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{route('editProduct')}}">Manage Product</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{route('products')}}">Manage Product</a></li>
               </ul>
             </div>
           </li>

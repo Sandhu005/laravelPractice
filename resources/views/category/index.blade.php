@@ -9,15 +9,14 @@
                 <div class="card-body">
                     <h4 class="card-title">Category</h4>
                     <p class="card-description">
-                        Dashboard <code>Manage Category</code>
+                        Category <code>Manage Category</code>
                     </p>
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>Profile</th>
-                                    <th>VatNo.</th>
-                                    <th>Created</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
                                     <th>Status</th>
                                     <th>Manage</th>
                                 </tr>
@@ -26,7 +25,6 @@
                                 <tr>
                                     <td>Jacob</td>
                                     <td>53275531</td>
-                                    <td>12 May 2017</td>
                                     <td><label class="badge badge-danger">Pending</label></td>
                                     <td>
                                         <button class="btn btn-outline-primary btn-sm">
