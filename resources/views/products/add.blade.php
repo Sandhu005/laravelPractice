@@ -30,11 +30,15 @@
                         </div>
                         <div class="form-group">
                             <label for="fee">Fees</label>
-                            <input type="text" class="form-control" id="fee" placeholder="Fees"></textarea>
+                            <input type="text" class="form-control" id="fee" placeholder="Fees">
                         </div>
                         <div class="form-group">
                             <label for="description">Description</label>
                             <textarea class="form-control" id="description" placeholder="Enter Description"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="image">Image</label>
+                            <input type="text" class="form-control" id="image" placeholder="Image">
                         </div>
                         <button type="submit" class="btn btn-primary mr-2">Submit</button>
                         <button class="btn btn-light">Reset</button>

@@ -14,6 +14,7 @@ class Products extends Model
         'duration',
         'fee',
         'description',
+        'image',
         'status',
     ];
     

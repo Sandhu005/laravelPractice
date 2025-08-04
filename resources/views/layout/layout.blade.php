@@ -56,7 +56,7 @@
         <ul class="navbar-nav navbar-nav-right">
           <li class="nav-item nav-date dropdown">
             <a class="nav-link d-flex justify-content-center align-items-center" href="javascript:;">
-              <h6 class="date mb-0">Today : Mar 23</h6>
+              <h6 class="date mb-0">@php echo date('Y-m-d'); @endphp</h6>
               <i class="typcn typcn-calendar"></i>
             </a>
           </li>
@@ -197,7 +197,7 @@
     </nav>
     <div class="container-fluid page-body-wrapper">
       <!-- partial:partials/_settings-panel.html -->
-      <div class="theme-setting-wrapper">
+      <!-- <div class="theme-setting-wrapper">
         <div id="settings-trigger"><i class="typcn typcn-cog-outline"></i></div>
         <div id="theme-settings" class="settings-panel">
           <i class="settings-close typcn typcn-times"></i>
@@ -214,7 +214,7 @@
             <div class="tiles default"></div>
           </div>
         </div>
-      </div>
+      </div> -->
       <div id="right-sidebar" class="settings-panel">
         <i class="settings-close typcn typcn-times"></i>
         <ul class="nav nav-tabs" id="setting-panel" role="tablist">
@@ -369,7 +369,7 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="{{route('dashboard')}}">
               <i class="typcn typcn-device-desktop menu-icon"></i>
               <span class="menu-title">Dashboard</span>
               <div class="badge badge-danger">new</div>
@@ -401,7 +401,7 @@
               </ul>
             </div>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
               <i class="typcn typcn-chart-pie-outline menu-icon"></i>
               <span class="menu-title">Charts</span>
@@ -468,7 +468,7 @@
               <i class="typcn typcn-mortar-board menu-icon"></i>
               <span class="menu-title">Documentation</span>
             </a>
-          </li>
+          </li> -->
         </ul>
       </nav>
       <!-- partial -->

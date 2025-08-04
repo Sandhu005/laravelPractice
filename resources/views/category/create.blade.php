@@ -10,17 +10,18 @@
                     <p class="card-description">
                         Add Category
                     </p>
-                    <form class="forms-sample">
+                    <form class="forms-sample" action="{{route('category.store')}}" method="post">
+                        @csrf
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Category Name">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Category Name">
                         </div>
                         <div class="form-group">
                             <label for="description">Description</label>
-                            <textarea class="form-control" id="description" placeholder="Enter Description"></textarea>
+                            <textarea class="form-control" id="description" name="description" placeholder="Enter Description"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                        <button class="btn btn-light">Reset</button>
+                        <button type="reset" class="btn btn-light">Reset</button>
                     </form>
                 </div>
             </div>

@@ -11,6 +11,13 @@
                     <p class="card-description">
                         Category <code>Manage Category</code>
                     </p>
+                    <div class="row">
+                            @if(Session::get('success'))
+                            <div class="col alert alert-success" role="alert">
+                                {{Session::get('success')}}
+                            </div>
+                            @endif
+                    </div>
                     <div class="table-responsive">
                         <table class="table">
                             <thead>

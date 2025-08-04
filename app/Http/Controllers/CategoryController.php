@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -35,7 +36,13 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $newCategory = new Category();
+        $newCategory->name = $request->name;
+        $newCategory->description = $request->description;
+        $newCategory->save();
+
+        return redirect()->route('category.index')->with("success", "Category Added Successfully!");
     }
 
     /**
