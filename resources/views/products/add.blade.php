@@ -10,38 +10,39 @@
                     <p class="card-description">
                         Add Products
                     </p>
-                    <form class="forms-sample">
+                    <form class="forms-sample" action="{{route('storeProduct')}}" method="post">
+                        @csrf
                          <div class="form-group">
-                            <label for="category">Category</label>
-                            <select class="form-control" name="" id="category">
+                            <label for="categoryID">Category</label>
+                            <select class="form-control" name="categoryID" id="categoryID">
                                 <option value="" selected disabled>Select Category</option>
-                                <option value="">Web Development</option>
-                                <option value="">Cyber Security</option>
-                                <option value="">Digital Marketing</option>
+                                <option value="1">Web Development</option>
+                                <option value="2">Cyber Security</option>
+                                <option value="3">Digital Marketing</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="name">Course Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Course Name">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Course Name">
                         </div>
                         <div class="form-group">
                             <label for="duration">Duration</label>
-                            <input type="text" class="form-control" id="duration" placeholder="Course Duration">
+                            <input type="text" class="form-control" id="duration" name="duration" placeholder="Course Duration">
                         </div>
                         <div class="form-group">
                             <label for="fee">Fees</label>
-                            <input type="text" class="form-control" id="fee" placeholder="Fees">
+                            <input type="text" class="form-control" id="fee" name="fee" placeholder="Fees">
                         </div>
                         <div class="form-group">
                             <label for="description">Description</label>
-                            <textarea class="form-control" id="description" placeholder="Enter Description"></textarea>
+                            <textarea class="form-control" id="description" name="description" placeholder="Enter Description"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="image">Image</label>
-                            <input type="text" class="form-control" id="image" placeholder="Image">
+                            <input type="text" class="form-control" id="image" name="image" placeholder="Image">
                         </div>
                         <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                        <button class="btn btn-light">Reset</button>
+                        <button type="reset" class="btn btn-light">Reset</button>
                     </form>
                 </div>
             </div>
