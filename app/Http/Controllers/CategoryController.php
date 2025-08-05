@@ -14,7 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('category.index');
+        $categories = Category::get();
+        return view('category.index', compact('categories'));
     }
 
     /**
@@ -37,9 +38,21 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
 
+        $imageNewName = null;
+
+        if ($request->hasFile('image')) {
+
+            $file = $request->file('image');
+
+            $imageNewName = time()."-".$file->getClientOriginalName();
+
+            $file->move(public_path('categoryImage'), $imageNewName);
+        }
+
         $newCategory = new Category();
         $newCategory->name = $request->name;
         $newCategory->description = $request->description;
+        $newCategory->image = $imageNewName;
         $newCategory->save();
 
         return redirect()->route('category.index')->with("success", "Category Added Successfully!");
@@ -65,6 +78,7 @@ class CategoryController extends Controller
     public function edit($id)
     {
         //
+        return view('category.edit');
     }
 
     /**

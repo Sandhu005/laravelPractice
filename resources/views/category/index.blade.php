@@ -22,27 +22,33 @@
                         <table class="table">
                             <thead>
                                 <tr>
+                                    <th>#</th>
                                     <th>Name</th>
                                     <th>Description</th>
+                                    <th>Image</th>
                                     <th>Status</th>
                                     <th>Manage</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Jacob</td>
-                                    <td>53275531</td>
-                                    <td><label class="badge badge-danger">Pending</label></td>
+                                @foreach($categories as $row)
+                                    <tr>
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{$row->name}}</td>
+                                    <td>{{$row->description}}</td>
+                                    <td><img src="{{url('categoryImage', $row->image)}}" alt=""></td>
+                                    <td>{{$row->status}}</td>
                                     <td>
-                                        <button class="btn btn-outline-primary btn-sm">
+                                        <a href="{{route('category.edit', $row->id)}}" class="btn btn-outline-primary btn-sm">
                                             <i class="bi bi-pencil-square"></i>
-                                        </button>
+                                        </a>
                                             &nbsp;
-                                        <button class="btn btn-outline-danger btn-sm">
+                                        <a class="btn btn-outline-danger btn-sm">
                                             <i class="bi bi-trash3"></i>
-                                        </button>
+                                        </a>
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
