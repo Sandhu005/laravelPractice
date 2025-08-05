@@ -10,7 +10,7 @@
                     <p class="card-description">
                         Add Products
                     </p>
-                    <form class="forms-sample" action="{{route('storeProduct')}}" method="post">
+                    <form class="forms-sample" action="{{route('storeProduct')}}" method="post" enctype="multipart/form-data">
                         @csrf
                          <div class="form-group">
                             <label for="categoryID">Category</label>
@@ -38,8 +38,8 @@
                             <textarea class="form-control" id="description" name="description" placeholder="Enter Description"></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="image">Image</label>
-                            <input type="text" class="form-control" id="image" name="image" placeholder="Image">
+                            <label for="image">Uploade Image</label>
+                            <input type="file" class="form-control" id="image" name="image">
                         </div>
                         <button type="submit" class="btn btn-primary mr-2">Submit</button>
                         <button type="reset" class="btn btn-light">Reset</button>

@@ -32,7 +32,7 @@ Route::get('/products', [ProductsController::class, 'home'])->name('products');
 
 Route::get('/product/add', [ProductsController::class, 'add'])->name('addProduct');
 
-Route::get('/product/edit', [ProductsController::class, 'edit'])->name('editProduct');
+Route::get('/product/{id}/edit', [ProductsController::class, 'edit'])->name('editProduct');
 
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 

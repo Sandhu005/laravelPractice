@@ -22,6 +22,7 @@
                         <table class="table">
                             <thead>
                                 <tr>
+                                    <th>#</th>
                                     <th>Category</th>
                                     <th>Course Name</th>
                                     <th>Course Duration</th>
@@ -32,23 +33,26 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($products as $row)
                                 <tr>
-                                    <td>Web Development</td>
-                                    <td>PHP</td>
-                                    <td>6 months</td>
-                                    <td>$500</td>
-                                    <td>Full stack with PHP</td>
-                                    <td><label class="badge badge-danger">Pending</label></td>
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{$row->categoryID}}</td>
+                                    <td>{{$row->name}}</td>
+                                    <td>{{$row->duration}}</td>
+                                    <td>Rs.{{$row->fee}}</td>
+                                    <td>{{$row->description}}</td>
+                                    <td>{{$row->status}}</td>
                                     <td>
-                                        <button class="btn btn-outline-primary btn-sm">
+                                        <a href="{{route('editProduct', $row->id)}}" class="btn btn-outline-primary btn-sm">
                                             <i class="bi bi-pencil-square"></i>
-                                        </button>
+                                        </a>
                                             &nbsp;
-                                        <button class="btn btn-outline-danger btn-sm">
+                                        <a class="btn btn-outline-danger btn-sm">
                                             <i class="bi bi-trash3"></i>
-                                        </button>
+                                        </a>
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
