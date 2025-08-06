@@ -18,10 +18,6 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/index', function () {
     return view('index');
 });
@@ -34,6 +30,6 @@ Route::get('/product/add', [ProductsController::class, 'add'])->name('addProduct
 
 Route::get('/product/{id}/edit', [ProductsController::class, 'edit'])->name('editProduct');
 
-Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
 
 Route::post('/product/store', [ProductsController::class, 'store'])->name('storeProduct');
