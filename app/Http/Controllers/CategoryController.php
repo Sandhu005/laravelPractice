@@ -77,8 +77,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
-        return view('category.edit');
+        $category = Category::findOrFail($id);
+        return view('category.edit', compact('category'));
     }
 
     /**
@@ -90,7 +90,25 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category = Category::findOrFail($id);
+        $imageNewName = null;
+        if($request->hasFile('newImage')){
+            $file = $request->file('newImage');
+            $imageNewName = time()."-".$file->getClientOriginalName();
+            $file->move(public_path('categoryImage'), $imageNewName);
+        }
+        else{
+            $imageNewName = $request->oldImage;
+        }
+
+        $category->name = $request->name;
+        $category->description = $request->description;
+        $category->image = $imageNewName;
+
+        $category->save();
+
+        return redirect()->route('category.index')->with('success', 'Catergory Updated Successfully!');
+
     }
 
     /**
@@ -101,6 +119,8 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::findOrFail($id);
+        $category->delete();
+        return redirect()->route('category.index')->with('success', 'Catergory Deleted Successfully!');
     }
 }

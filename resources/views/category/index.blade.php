@@ -12,11 +12,11 @@
                         Category <code>Manage Category</code>
                     </p>
                     <div class="row">
-                            @if(Session::get('success'))
-                            <div class="col alert alert-success" role="alert">
-                                {{Session::get('success')}}
-                            </div>
-                            @endif
+                        @if(Session::get('success'))
+                        <div class="col alert alert-success" role="alert">
+                            {{Session::get('success')}}
+                        </div>
+                        @endif
                     </div>
                     <div class="table-responsive">
                         <table class="table">
@@ -32,20 +32,24 @@
                             </thead>
                             <tbody>
                                 @foreach($categories as $row)
-                                    <tr>
+                                <tr>
                                     <td>{{$loop->iteration}}</td>
                                     <td>{{$row->name}}</td>
                                     <td>{{$row->description}}</td>
                                     <td><img src="{{url('categoryImage', $row->image)}}" alt=""></td>
                                     <td>{{$row->status}}</td>
-                                    <td>
+                                    <td class="d-flex">
                                         <a href="{{route('category.edit', $row->id)}}" class="btn btn-outline-primary btn-sm">
                                             <i class="bi bi-pencil-square"></i>
                                         </a>
-                                            &nbsp;
-                                        <a class="btn btn-outline-danger btn-sm">
-                                            <i class="bi bi-trash3"></i>
-                                        </a>
+                                        &nbsp;
+                                        <form class="forms-sample" action="{{route('category.destroy', $row->id)}}" method="post">
+                                            @method('DELETE')
+                                            @csrf
+                                            <button type="submit" class="btn btn-outline-danger btn-sm" onclick="return confirm('Are Your sure u want to delete this category ? ')">
+                                                <i class="bi bi-trash3"></i>
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                                 @endforeach

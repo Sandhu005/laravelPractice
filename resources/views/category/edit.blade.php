@@ -10,18 +10,23 @@
                     <p class="card-description">
                         Update Category
                     </p>
-                    <form class="forms-sample" action="" method="post" enctype="multipart/form-data">
+                    <form class="forms-sample" action="{{route('category.update', $category->id)}}" method="post" enctype="multipart/form-data">
+                    @method('PATCH')
+                    @csrf
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Category Name">
+                            <input type="text" value="{{$category->name}}" class="form-control" id="name" name="name" placeholder="Category Name">
                         </div>
                         <div class="form-group">
                             <label for="description">Description</label>
-                            <textarea class="form-control" id="description" name="description" placeholder="Enter Description"></textarea>
+                            <textarea class="form-control" id="description" name="description" placeholder="Enter Description">{{$category->description}}</textarea>
                         </div>
                         <div class="form-group">
-                            <label for="image">Upload Image</label>
-                            <input type="file" class="form-control" id="image" name="image">
+                            <label for="newImage">Upload Image</label>
+                            <input type="file" class="form-control" id="newImage" name="newImage">
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" value="{{$category->image}}" class="form-control" id="oldImage" name="oldImage">
                         </div>
                         <button type="submit" class="btn btn-primary mr-2">Submit</button>
                         <button type="reset" class="btn btn-light">Reset</button>
