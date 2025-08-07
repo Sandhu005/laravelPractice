@@ -24,6 +24,8 @@ Route::get('/index', function () {
 
 Route::resource('/category', CategoryController::class);
 
+Route::get('/catergory/{id}/changeStatus', [CategoryController::class, 'changeStatus'])->name('categoryChangeStatus');
+
 Route::get('/products', [ProductsController::class, 'home'])->name('products');
 
 Route::get('/product/add', [ProductsController::class, 'add'])->name('addProduct');

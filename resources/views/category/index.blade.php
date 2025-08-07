@@ -43,13 +43,19 @@
                                             <i class="bi bi-pencil-square"></i>
                                         </a>
                                         &nbsp;
-                                        <form class="forms-sample" action="{{route('category.destroy', $row->id)}}" method="post">
-                                            @method('DELETE')
-                                            @csrf
-                                            <button type="submit" class="btn btn-outline-danger btn-sm" onclick="return confirm('Are Your sure u want to delete this category ? ')">
-                                                <i class="bi bi-trash3"></i>
+
+                                        <a class="forms-sample" href="{{route('categoryChangeStatus', $row->id)}}">
+
+                                            @if($row->status =='Active')
+                                            <button type="submit" class="btn btn-outline-danger btn-sm">
+                                                Block
                                             </button>
-                                        </form>
+                                            @else
+                                                <button type="submit" class="btn btn-outline-success btn-sm">
+                                                UNBLOCK
+                                            </button>
+                                            @endif
+                                        </a>
                                     </td>
                                 </tr>
                                 @endforeach
