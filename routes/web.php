@@ -2,10 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\DashboardController;
-use App\Models\Products;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,20 +16,10 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 |
 */
 
-Route::get('/index', function () {
-    return view('index');
-});
+Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
 
 Route::resource('/category', CategoryController::class);
 
 Route::get('/catergory/changeStatus/{id}/{status}', [CategoryController::class, 'changeStatus'])->name('categoryChangeStatus');
 
-Route::get('/products', [ProductsController::class, 'home'])->name('products');
-
-Route::get('/product/add', [ProductsController::class, 'add'])->name('addProduct');
-
-Route::get('/product/{id}/edit', [ProductsController::class, 'edit'])->name('editProduct');
-
-Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
-
-Route::post('/product/store', [ProductsController::class, 'store'])->name('storeProduct');
+Route::resource('/product', ProductController::class);

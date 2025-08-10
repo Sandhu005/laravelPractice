@@ -10,36 +10,36 @@
                     <p class="card-description">
                         Add Products
                     </p>
-                    <form class="forms-sample" action="{{route('storeProduct')}}" method="post" enctype="multipart/form-data">
+                    <form class="forms-sample" action="{{route('product.store')}}" method="post" enctype="multipart/form-data">
                         @csrf
                          <div class="form-group">
                             <label for="categoryID">Category</label>
-                            <select class="form-control" name="categoryID" id="categoryID">
+                            <select class="form-control" name="categoryId" id="categoryId" required>
                                 <option value="" selected disabled>Select Category</option>
-                                <option value="1">Web Development</option>
-                                <option value="2">Cyber Security</option>
-                                <option value="3">Digital Marketing</option>
+                                @foreach($categories as $c)
+                                <option value="{{$c->id}}">{{$c->name}}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="name">Course Name</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Course Name">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Course Name" required>
                         </div>
                         <div class="form-group">
                             <label for="duration">Duration</label>
-                            <input type="text" class="form-control" id="duration" name="duration" placeholder="Course Duration">
+                            <input type="text" class="form-control" id="duration" name="duration" placeholder="Course Duration" required>
                         </div>
                         <div class="form-group">
                             <label for="fee">Fees</label>
-                            <input type="text" class="form-control" id="fee" name="fee" placeholder="Fees">
-                        </div>
-                        <div class="form-group">
-                            <label for="description">Description</label>
-                            <textarea class="form-control" id="description" name="description" placeholder="Enter Description"></textarea>
+                            <input type="text" class="form-control" id="fee" name="fee" placeholder="Fees" required>
                         </div>
                         <div class="form-group">
                             <label for="image">Uploade Image</label>
                             <input type="file" class="form-control" id="image" name="image">
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea class="form-control" id="description" name="description" placeholder="Enter Description" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary mr-2">Submit</button>
                         <button type="reset" class="btn btn-light">Reset</button>

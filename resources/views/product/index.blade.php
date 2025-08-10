@@ -24,26 +24,28 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Category</th>
-                                    <th>Course Name</th>
-                                    <th>Course Duration</th>
-                                    <th>Course Fees</th>
+                                    <th>Name</th>
+                                    <th>Duration</th>
+                                    <th>Fees</th>
+                                    <th>Image</th>
                                     <th>Description</th>
                                     <th>Status</th>
                                     <th>Manage</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($products as $row)
+                                @foreach($product as $row)
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
-                                    <td>{{$row->categoryID}}</td>
+                                    <td>{{$row->category->name}}</td>
                                     <td>{{$row->name}}</td>
                                     <td>{{$row->duration}}</td>
                                     <td>Rs.{{$row->fee}}</td>
+                                    <td><img src="{{url('productImage', $row->image)}}" alt="No Image"></td>
                                     <td>{{$row->description}}</td>
                                     <td>{{$row->status}}</td>
                                     <td>
-                                        <a href="{{route('editProduct', $row->id)}}" class="btn btn-outline-primary btn-sm">
+                                        <a href="{{route('product.edit', $row->id)}}" class="btn btn-outline-primary btn-sm">
                                             <i class="bi bi-pencil-square"></i>
                                         </a>
                                             &nbsp;
