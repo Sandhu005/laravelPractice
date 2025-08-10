@@ -96,7 +96,29 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product = Product::findOrFail($id);
+        $imageNewName = null;
+
+        if ($request->hasFile('newImage')) {
+
+            $file = $request->file('newImage');
+
+            $imageNewName = time() . "-" . $file->getClientOriginalName();
+
+            $file->move(public_path('productImage'), $imageNewName);
+        } else {
+            $imageNewName = $request->oldImage;
+        }
+
+        $product->name = $request->name;
+        $product->categoryId = $request->categoryId;
+        $product->description = $request->description;
+        $product->fee = $request->fee;
+        $product->duration = $request->duration;
+        $product->image = $imageNewName;
+        $product->save();
+
+        return redirect(route('product.index'))->with("success", "Product Updated Successfully");
     }
 
     /**

@@ -17,7 +17,7 @@
                             <label for="categoryID">Category</label>
                             <select class="form-control" name="categoryId" id="categoryId" required>
                                 @foreach($categories as $c)
-                                <option value="{{$product->categoryId}}" selected>{{$c->name}}</option>
+                                <option value="{{$product->categoryId}}" {{$product->categoryId == $c->id? 'selected':''}}>{{$c->name}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -27,19 +27,22 @@
                         </div>
                         <div class="form-group">
                             <label for="duration">Duration</label>
-                            <input type="text" class="form-control" id="duration" name="duration" placeholder="Course Duration" required>
+                            <input type="text" class="form-control" id="duration" name="duration" placeholder="Course Duration" required value="{{$product->duration}}">
                         </div>
                         <div class="form-group">
                             <label for="fee">Fees</label>
-                            <input type="text" class="form-control" id="fee" name="fee" placeholder="Fees" required>
+                            <input type="text" class="form-control" id="fee" name="fee" placeholder="Fees" required value="{{$product->fee}}">
                         </div>
                         <div class="form-group">
-                            <label for="image">Uploade Image</label>
-                            <input type="file" class="form-control" id="image" name="image">
+                            <label for="newImage">Uploade Image</label>
+                            <input type="file" class="form-control" id="newImage" name="newImage">
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" class="form-control" id="oldImage" name="oldImage" value="{{$product->image}}">
                         </div>
                         <div class="form-group">
                             <label for="description">Description</label>
-                            <textarea class="form-control" id="description" name="description" placeholder="Enter Description" required></textarea>
+                            <textarea class="form-control" id="description" name="description" placeholder="Enter Description" required>{{$product->description}}</textarea>
                         </div>
                         <button type="submit" class="btn btn-primary mr-2">Submit</button>
                         <button type="reset" class="btn btn-light">Reset</button>
