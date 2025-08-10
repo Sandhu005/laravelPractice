@@ -130,22 +130,11 @@ class CategoryController extends Controller
         return redirect()->back()->with('success', 'Catergory Restore Successfully!');
     }
 
-     public function changeStatus($id)
+     public function changeStatus($id, $status)
     {
         $category = Category::findOrFail($id);
-
-        if($category->status == 'Active'){
-            $category->status = 'Blocked';
-            $category->save();
-            return redirect()->back()->with('success', 'Category Blocked!');
-        }
-        elseif($category->status == 'Bloacked'){
-            $category->status = 'Active';
-            $category->save();
-            return redirect()->back()->with('success', 'Category Active!');
-        }else{
-            return redirect()->back()->with('success', 'Invalid Status!');
-        }
+        $category->status = $status;
+        $category->save();
+        return redirect()->back()->with('success', 'Category Status Changed!');
     }
-
 }

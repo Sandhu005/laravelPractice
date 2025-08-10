@@ -43,19 +43,19 @@
                                             <i class="bi bi-pencil-square"></i>
                                         </a>
                                         &nbsp;
-
-                                        <a class="forms-sample" href="{{route('categoryChangeStatus', $row->id)}}">
-
-                                            @if($row->status =='Active')
+                                        @if($row->status =='Active')
+                                        <a class="forms-sample" href="{{route('categoryChangeStatus', ['id'=>$row->id, 'status'=>'Block'])}}">
                                             <button type="submit" class="btn btn-outline-danger btn-sm">
                                                 Block
                                             </button>
-                                            @else
-                                                <button type="submit" class="btn btn-outline-success btn-sm">
+                                        </a>
+                                        @else
+                                        <a class="forms-sample" href="{{route('categoryChangeStatus', ['id'=>$row->id, 'status'=>'Active'])}}">
+                                            <button type="submit" class="btn btn-outline-success btn-sm">
                                                 UNBLOCK
                                             </button>
-                                            @endif
                                         </a>
+                                        @endif
                                     </td>
                                 </tr>
                                 @endforeach
