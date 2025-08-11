@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\DashboardController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +19,20 @@ use App\Http\Controllers\DashboardController;
 
 Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
 
+Route::get('/register', function(){
+    return view('auth.register');
+});
+
+Route::get('/login', function(){
+    return view('auth.login');
+});
+
 Route::resource('/category', CategoryController::class);
 
 Route::get('/catergory/changeStatus/{id}/{status}', [CategoryController::class, 'changeStatus'])->name('categoryChangeStatus');
 
 Route::resource('/product', ProductController::class);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

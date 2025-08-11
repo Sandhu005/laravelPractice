@@ -26,7 +26,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $categories = Category::get();
+        // $categories = Category::where('status', 'Active')->where('id', 1)->get();
+        $categories = Category::where('status', 'Active')->get();
         return view('product.create', compact('categories'));
     }
 
@@ -83,7 +84,7 @@ class ProductController extends Controller
     {
         // $categories = Category::get();
         $product = Product::with('category')->findOrFail($id);
-        $categories = Category::all();
+        $categories = Category::where('status', 'Active')->get();
         return view('product.edit', compact('product', 'categories'));
     }
 
