@@ -72,6 +72,9 @@
                                         {{ __('Login') }}
                                     </button>
                                 </div>
+                                <div class="text-center mt-4 font-weight-light">
+                                    Don't have an account? <a href="{{route('register')}}" class="text-primary">Register</a>
+                                </div>
                             </form>
                         </div>
                     </div>

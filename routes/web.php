@@ -17,13 +17,13 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
 Route::get('/register', function(){
     return view('auth.register');
 });
 
-Route::get('/login', function(){
+Route::get('/', function(){
     return view('auth.login');
 });
 
