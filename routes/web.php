@@ -16,9 +16,19 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::middleware(['auth'])->group(function () {
 
-Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
+    Route::resource('/category', CategoryController::class);
+
+    Route::get('/catergory/changeStatus/{id}/{status}', [CategoryController::class, 'changeStatus'])->name('categoryChangeStatus');
+
+    Route::resource('/product', ProductController::class);
+
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    
+});
 Route::get('/register', function(){
     return view('auth.register');
 });
@@ -27,12 +37,6 @@ Route::get('/', function(){
     return view('auth.login');
 });
 
-Route::resource('/category', CategoryController::class);
 
-Route::get('/catergory/changeStatus/{id}/{status}', [CategoryController::class, 'changeStatus'])->name('categoryChangeStatus');
-
-Route::resource('/product', ProductController::class);
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

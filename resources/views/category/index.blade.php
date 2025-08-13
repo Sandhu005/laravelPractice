@@ -18,6 +18,11 @@
                         </div>
                         @endif
                     </div>
+                    <!-- 
+                    @if(Auth::user()->name !="" )
+                    <button>Add Category</button>
+                    @endif -->
+
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
@@ -50,10 +55,13 @@
                                             </button>
                                         </a>
                                         @else
+
+
                                         <a class="forms-sample" href="{{route('categoryChangeStatus', ['id'=>$row->id, 'status'=>'Active'])}}">
                                             <button type="submit" class="btn btn-outline-success btn-sm">
                                                 UNBLOCK
                                             </button>
+
                                         </a>
                                         @endif
                                     </td>

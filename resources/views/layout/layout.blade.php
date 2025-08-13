@@ -44,7 +44,7 @@
           @else
           <li class="nav-item nav-profile dropdown">
             <a id="navbarDropdown" class="nav-link nav-profile-name" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-              <img src="{{url('images/faces/face5.jpg')}}" alt="profile"/>
+              <img src="{{url('images/faces/face5.jpg')}}" alt="profile" />
               <span class="nav-profile-name">{{ Auth::user()->name }}</span>
             </a>
 
